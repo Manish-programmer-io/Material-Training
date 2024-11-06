@@ -1,0 +1,88 @@
+{
+  "user": [
+    {
+      "department": "it",
+      "name": "Manish Soni",
+      "mobile": "7007659840",
+      "email": "manih@gmail.com",
+      "doj": "2024-10-31T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25000",
+      "usercode": "UI007",
+      "status": true,
+      "id": "b2bc"
+    },
+    {
+      "id": "d3e2",
+      "department": "sales",
+      "name": "Atharv",
+      "mobile": "859898598",
+      "email": "atharv@gmail.com",
+      "doj": "2024-11-05T18:30:00.000Z",
+      "gender": "male",
+      "salary": "20000",
+      "usercode": "sl009",
+      "status": true
+    },
+    {
+      "id": "2593",
+      "department": "accounts",
+      "name": "Ayush",
+      "mobile": "985785787",
+      "email": "ayush@gmail.com",
+      "doj": "2024-11-03T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25000",
+      "usercode": "ac006",
+      "status": ""
+    },
+    {
+      "id": "55f2",
+      "department": "IT",
+      "name": "Rahul",
+      "mobile": "7850001456",
+      "email": "rahul@gmail.com",
+      "doj": "2024-11-06T18:30:00.000Z",
+      "gender": "male",
+      "salary": "20000",
+      "usercode": "it006",
+      "status": true
+    },
+    {
+      "id": "67cf",
+      "department": "hr",
+      "name": "Rajesh",
+      "mobile": "854795554",
+      "email": "rajesh@gmail.com",
+      "doj": "2024-11-04T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25642",
+      "usercode": "bhhbhbw",
+      "status": true
+    },
+    {
+      "id": "ba9c",
+      "department": "sales",
+      "name": "Ramesh",
+      "mobile": "895745555",
+      "email": "Ramesh@gmail.com",
+      "doj": "2024-10-31T18:30:00.000Z",
+      "gender": "male",
+      "salary": "58987",
+      "usercode": "bhghw",
+      "status": true
+    },
+    {
+      "id": "9414",
+      "department": "IT",
+      "name": "hu",
+      "mobile": "88888888",
+      "email": "hhjhjhj",
+      "doj": "2024-11-13T18:30:00.000Z",
+      "gender": "male",
+      "salary": "5888",
+      "usercode": "hhghgjhhgj",
+      "status": true
+    }
+  ]
+}
