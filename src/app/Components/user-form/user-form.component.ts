@@ -1,6 +1,6 @@
 
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnakBarService } from '../../Services/mat-snak-bar.service';
 import { UserService } from '../../Services/user.service';
@@ -21,7 +21,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { Portal } from '@angular/cdk/portal';
+import { PhoneFormatPipe } from '../../Pipes/phone-format.pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-form',
@@ -43,6 +44,8 @@ import { Portal } from '@angular/cdk/portal';
     MatTableModule,
     MatSnackBarModule,
     FormsModule,
+    PhoneFormatPipe,
+    CommonModule,
   ],
   templateUrl: './user-form.component.html',
   providers: [provideNativeDateAdapter()],
@@ -51,7 +54,6 @@ import { Portal } from '@angular/cdk/portal';
 export class UserFormComponent {
 
   registerForm: FormGroup;
-
   constructor(
     private _fb: FormBuilder,
     private _userService: UserService,
@@ -61,15 +63,15 @@ export class UserFormComponent {
 
     this.registerForm = this._fb.group({
 
-      department: new FormControl ('', Validators.required),
-      name: '',
-      mobile: '',
-      email: '',
-      doj: '',
-      gender: '',
-      salary: '',
-      usercode: '',
-      status: '',
+      department: ['', Validators.required],
+      name: ['', Validators.required],
+      mobile: ['', Validators.required, Validators.pattern(/^\d{10}$/)],
+      email: ['', Validators.required, Validators.pattern(/[A-Za-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,}$/)],
+      doj: ['', Validators.required],
+      gender: ['', Validators.required],
+      salary: ['', Validators.required],
+      usercode: ['', Validators.required],
+      status: ['', Validators.required],
 
     });
   }

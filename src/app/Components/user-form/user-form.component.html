@@ -1,71 +1,99 @@
-<h1 mat-dialog-title class="title">{{ data ? 'Update User': 'Add User' }}</h1>
+
+  <h1 mat-dialog-title class="title">{{ data ? 'Update User': 'Add User' }}
+   <button mat-raised-button class="cancel-btn" type="button" [mat-dialog-close]="false"><mat-icon style="margin-left: 5px;">close</mat-icon></button>
+  </h1>
 
 
 <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
   <div mat-dialog-content class="content">
 
     <div class="row">
-      <mat-form-field appearance="outline" class="mat-input" >
+      <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Select Department</mat-label>
-        <mat-select formControlName="department">
+        <mat-select formControlName="department" required>
           <mat-option value="IT">IT</mat-option>
           <mat-option value="hr">HR</mat-option>
           <mat-option value="sales">SALES</mat-option>
           <mat-option value="accounts">ACCOUNTS</mat-option>
           <mat-option value="management">MANAGEMENT</mat-option>
         </mat-select>
+        <mat-error class="errorcode" *ngIf="registerForm.get('department')?.hasError('required')">
+          Please Select Department.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Name</mat-label>
-        <input matInput formControlName="name" type="text" id="" placeholder="Ex. Name" required>
+        <input matInput formControlName="name" type="text" placeholder="Ex. Name" required>
+        <mat-error *ngIf="registerForm.get('name')?.hasError('required')">
+          Name is required.
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Mobile</mat-label>
-        <input matInput formControlName="mobile" type="text" placeholder="Ex. Mobile" required>
+        <input matInput formControlName="mobile" type="text" placeholder="Ex. Mobile" required pattern="^\d{10}$">
+        <mat-error *ngIf="registerForm.get('mobile')?.hasError('required')">
+          Mobile number is required.
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('mobile')?.hasError('pattern')">
+          Must be exactly 10 digits.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" placeholder="Ex. abc@gmail.com" required >
+        <input matInput formControlName="email" type="email" placeholder="Ex. abc@gmail.com" required  pattern="[A-Za-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,}$">
+        <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="registerForm.get('email')?.hasError('pattern')">
+          Enter a valid email address.
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="row">
-
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Select Date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="doj" required>
-        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-error *ngIf="registerForm.get('doj')?.hasError('required')">
+          Please select Date of Joining.
+        </mat-error>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-radio-group aria-label="Select an option" formControlName="gender" class="mat-input">
+      <mat-radio-group aria-label="Select an option" formControlName="gender" class="mat-input gender-class" >
         <mat-label>Gender</mat-label>
         <mat-radio-button value="male">Male</mat-radio-button>
         <mat-radio-button value="female">Female</mat-radio-button>
       </mat-radio-group>
     </div>
-    <div class="row">
 
+    <div class="row">
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Salary</mat-label>
-        <input matInput formControlName="salary" type="text" placeholder="Ex. Mobile" required>
+        <input matInput formControlName="salary" type="text" placeholder="Ex. x,xxx" required>
+        <mat-error *ngIf="registerForm.get('salary')?.hasError('required')">
+          Please enter salary.
+        </mat-error>
       </mat-form-field>
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>User Code</mat-label>
-        <input matInput formControlName="usercode" type="text" placeholder="Ex. abc@gmail.com" required>
+        <input matInput formControlName="usercode" type="text" placeholder="Ex. xxx-(1-9)" required>
+        <mat-error *ngIf="registerForm.get('usercode')?.hasError('required')">
+          Please enter usercode.
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="row">
       <section class="example-section" class="mat-input">
-        <mat-checkbox class="example-margin" formControlName="status">Active ?</mat-checkbox>
+        <mat-checkbox class="example-margin" formControlName="status">Employee</mat-checkbox>
 
       </section>
     </div>
-  </div>
+  </div>  
 
   <div mat-dialog-actions style="justify-content: center;" class="action">
-    <button mat-raised-button class="btn-cancel" type="button" [mat-dialog-close]="false">CANCEL</button>
-    <button mat-raised-button class="btn-save" type="submit">{{ data ? 'Update': 'Save' }}</button>
+    <!-- <button mat-raised-button class="btn-cancel" type="button" [mat-dialog-close]="false"><mat-icon>cancel</mat-icon></button> -->
+    <button mat-raised-button class="btn-save" type="submit" [disabled]="registerForm.invalid">{{ data ? 'Update': 'Save' }}</button>
   </div>
 </form>

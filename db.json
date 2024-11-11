@@ -13,31 +13,30 @@
       "id": "b2bc"
     },
     {
-      "id": "d3e2",
       "department": "sales",
       "name": "Atharv",
-      "mobile": "859898598",
+      "mobile": "8598985980",
       "email": "atharv@gmail.com",
       "doj": "2024-11-05T18:30:00.000Z",
       "gender": "male",
       "salary": "20000",
       "usercode": "sl009",
-      "status": true
+      "status": true,
+      "id": "d3e2"
     },
     {
-      "id": "2593",
       "department": "accounts",
       "name": "Ayush",
-      "mobile": "985785787",
+      "mobile": "9857857877",
       "email": "ayush@gmail.com",
       "doj": "2024-11-03T18:30:00.000Z",
       "gender": "male",
       "salary": "25000",
       "usercode": "ac006",
-      "status": ""
+      "status": "",
+      "id": "2593"
     },
     {
-      "id": "55f2",
       "department": "IT",
       "name": "Rahul",
       "mobile": "7850001456",
@@ -46,43 +45,56 @@
       "gender": "male",
       "salary": "20000",
       "usercode": "it006",
-      "status": true
+      "status": true,
+      "id": "55f2"
     },
     {
-      "id": "67cf",
-      "department": "hr",
-      "name": "Rajesh",
-      "mobile": "854795554",
-      "email": "rajesh@gmail.com",
-      "doj": "2024-11-04T18:30:00.000Z",
-      "gender": "male",
-      "salary": "25642",
-      "usercode": "bhhbhbw",
-      "status": true
-    },
-    {
-      "id": "ba9c",
       "department": "sales",
       "name": "Ramesh",
-      "mobile": "895745555",
+      "mobile": "8957455559",
       "email": "Ramesh@gmail.com",
       "doj": "2024-10-31T18:30:00.000Z",
       "gender": "male",
       "salary": "58987",
       "usercode": "bhghw",
+      "status": true,
+      "id": "ba9c"
+    },
+    {
+      "id": "3568",
+      "department": "IT",
+      "name": "Mandy123",
+      "mobile": "8758588989",
+      "email": "mandy@gmail.com",
+      "doj": "2024-11-07T18:30:00.000Z",
+      "gender": "male",
+      "salary": "52000",
+      "usercode": "xbheb",
       "status": true
     },
     {
-      "id": "9414",
+      "id": "3124",
       "department": "IT",
-      "name": "hu",
-      "mobile": "88888888",
-      "email": "hhjhjhj",
-      "doj": "2024-11-13T18:30:00.000Z",
+      "name": "Rajesh",
+      "mobile": "7007569841",
+      "email": "rajesh@gmail.com",
+      "doj": "2024-11-06T18:30:00.000Z",
       "gender": "male",
-      "salary": "5888",
-      "usercode": "hhghgjhhgj",
+      "salary": "25000",
+      "usercode": "ux008",
       "status": true
+    },
+    {
+      "department": "IT",
+      "name": "\tRAJESH",
+      "mobile": "7007896540",
+      "email": "rajesh@gmail.com",
+      "doj": "2024-11-06T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25000",
+      "usercode": "ui007",
+      "status": true,
+      "id": "8700"
     }
   ]
 }

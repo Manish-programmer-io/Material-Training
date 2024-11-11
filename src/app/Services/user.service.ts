@@ -12,6 +12,7 @@ export class UserService {
   addUser(data:any)
   {
     return this._http.post('http://localhost:3000/user',data);
+    
   }
   updateUser(id:number , data:any)
   {

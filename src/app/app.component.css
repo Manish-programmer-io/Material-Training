@@ -9,7 +9,7 @@
     font-family: fantasy;
   }
   .container{
-    width: 1200px;
+    width: 1300px;
     margin: auto;
   }
   table{
@@ -28,3 +28,8 @@
     margin-top: 5px;
     margin-bottom: -15px;
   }
+
+  /* .custom-backdrop {
+    background-color: rgb(0, 0, 0); 
+    z-index: 1000; 
+  } */

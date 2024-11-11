@@ -20,6 +20,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnakBarService } from './Services/mat-snak-bar.service';
 import { MatSort } from '@angular/material/sort';
 import { UserFormComponent } from './Components/user-form/user-form.component';
+import { PhoneFormatPipe } from './Pipes/phone-format.pipe';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,7 @@ import { UserFormComponent } from './Components/user-form/user-form.component';
   imports: [RouterOutlet,
     MatSlideToggleModule,
     MatFormFieldModule,
-    MatInputModule,
+    MatInputModule, 
     MatButtonModule,
     MatIconModule,
     MatDatepickerModule,
@@ -38,6 +39,7 @@ import { UserFormComponent } from './Components/user-form/user-form.component';
     MatPaginator,
     MatToolbar,
     MatTableModule,
+    PhoneFormatPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
@@ -82,7 +84,11 @@ export class AppComponent {
     }
   }
   openUserForm() {
-    const dialogRef = this._dialog.open(UserFormComponent);
+    const dialogRef = this._dialog.open(UserFormComponent, {
+      disableClose: true,
+      height: 'auto',    
+    });
+    
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
         this.getUsersList();

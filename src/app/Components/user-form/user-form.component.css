@@ -1,15 +1,25 @@
 .content{
     padding-top: 10px;
+
 }
+
 .row{
     display: flex;
     gap:10px;
    
 }
+.errorhand{
+    margin-bottom: 14px;
+}
 .mat-input{
 
     width: 50%;
+    margin-bottom: 14px;
 }
+.gender-class{
+    margin-top: 10px;
+}
+
 .title{
 
     background-color: #2196f3;
@@ -17,9 +27,35 @@
     font-family: fantasy;
 }
 
+.cancel-btn{
+    float: right;
+    margin-top: 15px;
+    color: #e81515;
+    border: 2px solid #fff;
+}
+
+.cancel-btn:hover{
+    background-color: #e81515;
+    transform: translateY(-2px);
+    transition: .3s;
+    color: white;
+}
+
+.mat-mdc-raised-button .mat-mdc-button-touch-target {
+    position: absolute;
+    top: 50%;
+    height: 48px;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: var(--mat-protected-button-touch-target-display);
+}
+
 .btn-cancel{
     background-color: #e81515;
     color: white;
+    float: right;
+    align-items: center;
 }
 .btn-save{
     background-color: #2196f3;
