@@ -1,7 +1,7 @@
-
-  <h1 mat-dialog-title class="title">{{ data ? 'Update User': 'Add User' }}
-   <button mat-raised-button class="cancel-btn" type="button" [mat-dialog-close]="false"><mat-icon style="margin-left: 5px;">close</mat-icon></button>
-  </h1>
+<h1 mat-dialog-title class="title">{{ data ? 'Update User': 'Add User' }}
+  <button mat-raised-button class="cancel-btn" type="button" [mat-dialog-close]="false"><mat-icon
+      style="margin-left: 5px;">close</mat-icon></button>
+</h1>
 
 
 <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
@@ -32,7 +32,8 @@
     <div class="row">
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Mobile</mat-label>
-        <input matInput formControlName="mobile" type="text" placeholder="Ex. Mobile" required pattern="^\d{10}$">
+        <input matInput formControlName="mobile" type="text" placeholder="Ex. Mobile" required pattern="^\d{10}$"
+          maxlength="10">
         <mat-error *ngIf="registerForm.get('mobile')?.hasError('required')">
           Mobile number is required.
         </mat-error>
@@ -42,7 +43,8 @@
       </mat-form-field>
       <mat-form-field appearance="outline" class="mat-input">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" placeholder="Ex. abc@gmail.com" required  pattern="[A-Za-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,}$">
+        <input matInput formControlName="email" type="email" placeholder="Ex. abc@gmail.com" required
+          pattern="[A-Za-z0-9\._%\+\-]+@[a-z0-9\.\-]+\.[a-z]{2,}$">
         <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
           Email is required.
         </mat-error>
@@ -61,7 +63,7 @@
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-radio-group aria-label="Select an option" formControlName="gender" class="mat-input gender-class" >
+      <mat-radio-group aria-label="Select an option" formControlName="gender" class="mat-input gender-class">
         <mat-label>Gender</mat-label>
         <mat-radio-button value="male">Male</mat-radio-button>
         <mat-radio-button value="female">Female</mat-radio-button>
@@ -84,16 +86,30 @@
         </mat-error>
       </mat-form-field>
     </div>
+    <div class="row" formArrayName="skills" *ngFor="let skills of registerForm.get('skills').controls; index as idx">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Add Skills</mat-label>
+          <input matInput formControlName="Skills" type="text" placeholder="Ex. Java, python etc." required>
+          <mat-error *ngIf="registerForm.get('skills')?.hasError('required')">
+            Atleast enter one skill.
+          </mat-error>
+      </mat-form-field>
+      <button mat-icon-button (click)="addMore()" style="margin: 7px;">
+        <mat-icon>link</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteRow(idx)" style="margin: 7px;">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
     <div class="row">
       <section class="example-section" class="mat-input">
         <mat-checkbox class="example-margin" formControlName="status">Employee</mat-checkbox>
-
       </section>
     </div>
-  </div>  
+  </div>
 
   <div mat-dialog-actions style="justify-content: center;" class="action">
-    <!-- <button mat-raised-button class="btn-cancel" type="button" [mat-dialog-close]="false"><mat-icon>cancel</mat-icon></button> -->
-    <button mat-raised-button class="btn-save" type="submit" [disabled]="registerForm.invalid">{{ data ? 'Update': 'Save' }}</button>
+    <button mat-raised-button class="btn-save" type="submit" [disabled]="registerForm.invalid">{{ data ? 'Update':
+      'Save' }}</button>
   </div>
 </form>

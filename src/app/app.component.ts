@@ -48,7 +48,7 @@ import { PhoneFormatPipe } from './Pipes/phone-format.pipe';
 
 export class AppComponent {
   title = 'material-practice';
-  displayedColumns: string[] = ['id', 'department', 'name', 'mobile', 'email', 'doj', 'gender', 'salary', 'usercode', 'status', 'action'];
+  displayedColumns: string[] = ['id', 'department', 'name', 'mobile', 'email', 'doj', 'gender', 'salary', 'usercode' , 'skills', 'status', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

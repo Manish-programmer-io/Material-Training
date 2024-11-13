@@ -1,6 +1,6 @@
 
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnakBarService } from '../../Services/mat-snak-bar.service';
 import { UserService } from '../../Services/user.service';
@@ -53,7 +53,7 @@ import { CommonModule } from '@angular/common';
 })
 export class UserFormComponent {
 
-  registerForm: FormGroup;
+  registerForm: any;
   constructor(
     private _fb: FormBuilder,
     private _userService: UserService,
@@ -72,6 +72,11 @@ export class UserFormComponent {
       salary: ['', Validators.required],
       usercode: ['', Validators.required],
       status: ['', Validators.required],
+      skills : new FormArray([
+        new FormControl(
+        )
+
+      ])
 
     });
   }
@@ -80,7 +85,6 @@ export class UserFormComponent {
   }
   onFormSubmit() {
     if (this.registerForm.valid) {
-      // console.log('Form Values:', this.registerForm.value);
       if (this.data) {
         this._userService.updateUser(this.data.id, this.registerForm.value).subscribe(res => {
           this._snackBar.openSnackBar('User Updated Successfully!', 'Done');
@@ -98,6 +102,14 @@ export class UserFormComponent {
       }
 
     }
+  }
+
+  addMore(){
+    this.registerForm.get('skills').push(new FormControl());
+  }
+
+  deleteRow(val:any){
+    this.registerForm.get('skills').removeAt(val);
   }
 
 }
